@@ -11,7 +11,15 @@ public class CarBehaviourLight : CarBehaviour {
 		float rightSensor = RightLD.GetLinearOutput ();
 
 		//Calculate target motor values
-		m_LeftWheelSpeed = leftSensor * MaxSpeed;
-		m_RightWheelSpeed = rightSensor * MaxSpeed;
+
+		if(m_LeftWheelSpeed > 5){
+			m_LeftWheelSpeed = leftSensor * MaxSpeed ;
+			m_RightWheelSpeed = rightSensor * MaxSpeed*1.5f;
+
+		}
+		else{
+			m_LeftWheelSpeed = leftSensor * MaxSpeed*1.5f;
+			m_RightWheelSpeed = rightSensor * MaxSpeed;
+		}
 	}
 }
